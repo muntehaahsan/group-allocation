@@ -1,0 +1,48 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+.alert-box.warning {
+	background-color: #f08a24;
+	border-color: #de770f;
+	color: white;
+}
+
+.alert-box.success {
+	background-color: #43ac6a;
+	border-color: #3a945b;
+	color: white;
+}
+
+.alert-box.radius {
+	border-radius: 3px;
+}
+
+.alert-box {
+	border-style: solid;
+	border-width: 1px;
+	display: block;
+	font-weight: normal;
+	position: relative;
+	padding: 0.875rem 1.5rem 0.875rem 0.875rem;
+	font-size: 14px;
+	transition: opacity 300ms ease-out;
+	background-color: #008cba;
+	border-color: #0078a0;
+	color: white;
+   	 width: 95%;
+	 position: absolute;
+  	z-index: 999;
+}
