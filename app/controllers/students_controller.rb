@@ -4,7 +4,7 @@ class StudentsController < ApplicationController
   respond_to :html
 
   def index
-    @students = Student.all
+    @students = all_students
     respond_with(@students)
   end
 
@@ -36,7 +36,18 @@ class StudentsController < ApplicationController
     respond_with(@student)
   end
 
+  def get_student_list
+	@students = all_students
+	render partial: '/students/student_list' , layout: false 
+  end
+
+
   private
+    
+    def all_students
+      Student.all
+    end 
+
     def set_student
       @student = Student.find(params[:id])
     end

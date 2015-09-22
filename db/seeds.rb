@@ -6,15 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#Role.create(name: 'Admin')
-#Role.create(name: 'Leader')
-#Role.create(name: 'Guest')
 
+Role.create(name: 'Admin')
+Role.create(name: 'Leader')
+Role.create(name: 'Guest')
 
 Group.create(name: 'Alpha', date: '2015-8-10 00:00:00')
 Group.create(name: 'Bravo', date: '2015-9-10 00:00:00')
 Group.create(name: 'Charlie', date: '2015-10-10 00:00:00')
-
 
 Student.create(name: 'Alice', email: 'alice@abc.com', grade:'10')
 Student.create(name: 'Ali', email: 'ali@abc.com', grade:'11')
@@ -23,8 +22,11 @@ Student.create(name: 'Nelson', email: 'nelson@abc.com', grade:'9')
 Student.create(name: 'Bruce', email: 'bruce@abc.com', grade:'10')
 Student.create(name: 'Chicang', email: 'chicang@abc.com', grade:'10')
 Student.create(name: 'Fahad', email: 'fahad@abc.com', grade:'11')
-Student.create(name: 'Munteha', email: 'munteha.ahsan@gmail.com.com', grade:'8')
+Student.create(name: 'Munteha', email: 'munteha.ahsan@gmail.com', grade:'8')
 
 Topic.create(name: 'Alligators', subject: 'Living')
 Topic.create(name: 'Cars and Us', subject: 'Transport')
 Topic.create(name: 'Sea Life', subject: 'Living')
+
+User.create(email: 'munteha18@gmail.com', password: DEFAULT_PASSWORD, name: 'Admin', role_id: 1)
+User.create(email: 'munteha.ahsan@gmail.com', password: DEFAULT_PASSWORD, name: 'Munteha', role_id: 2, student_id: 8)

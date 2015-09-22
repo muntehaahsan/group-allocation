@@ -9,10 +9,24 @@ Rails.application.configure do
   # Do not eager load code on boot.
   config.eager_load = false
 
-  # Show full error reports and disable caching.
+    # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
 
+  # Don't care if the mailer can't send.
+  
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.default_url_options = { :host => "localhost:3000" }
+  config.action_mailer.default_options = { from: "'Mesa&Cadeira' <no-reply@test.com>" }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+      address:              'smtp.gmail.com',
+      port:                 587,
+      domain:               'gmail.com',
+      user_name:            'test@test.com',#valid email here 
+      password:             'test1234', #valid password here
+      authentication:       'plain',
+      enable_starttls_auto: true  }
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
   

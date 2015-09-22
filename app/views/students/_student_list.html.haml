@@ -1,0 +1,6 @@
+- @students.each do |student|
+  %input{:id => "radio_#{student[:id]}", :name => "student_check", :type => "checkbox", :value => "#{student[:id]}_#{student[:name]}"}/
+  = student.name
+  %br/
+%button#add_to_group_btn{:onclick => "add_student_to_group();", :style => "margin-top:10px;"} Add to group
+

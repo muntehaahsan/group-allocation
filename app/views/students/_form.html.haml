@@ -8,10 +8,10 @@
 
   .field
     = f.label :name
-    = f.text_field :name
+    = f.text_field :name, :required => true
   .field
     = f.label :email
-    = f.text_field :email
+    = f.text_field :email, :required => true
   .field
     = f.label :grade
     = f.text_area :grade

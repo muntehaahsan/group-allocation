@@ -14,11 +14,67 @@
  *= require_self
  */
 
+/* loading fonts*/
+
+@font-face {font-family: Apercu-Bold;src: url(../assets/Apercu-Bold.otf);}
+@font-face {font-family: Apercu-Bold-Italic;src: url(../assets/Apercu-Bold-Italic.otf);}
+@font-face {font-family: Apercu-Italic;src: url(../assets/Apercu-Italic.otf);}
+@font-face {font-family: Apercu-Light;src: url(../assets/Apercu-Light.otf);}
+@font-face {font-family: Apercu-Light-Italic;src: url(../assets/Apercu-Light-Italic.otf);}
+@font-face {font-family: Apercu-Medium;src: url(../assets/Apercu-Medium.otf);}
+@font-face {font-family: Apercu-Medium-Italic;src: url(../assets/Apercu-Medium-Italic.otf);}
+@font-face {font-family: Apercu-Mono;src: url(../assets/Apercu-Mono.otf);}
+@font-face {font-family: Apercu-Regular;src: url(../assets/Apercu-Regular.otf);}
+
+/* paddings and margins*/
+
+.padding-top10{padding-top:10px;}
+.no-margin-bottom{ margin-bottom:0px}
+.no-padding{ padding:0px}
+.no-margin{ margin:0px}
+.padding-top25{padding-top: 25px;}
+.margin-top25{margin-top: 25px !important;}
+.margin-top15{margin-top: 15px;}
+.apercu-light {font-family: Apercu-Light;}
 .alert-box.warning {
 	background-color: #f08a24;
 	border-color: #de770f;
 	color: white;
 }
+/* buttons*/
+
+.btn-admin{
+	line-height: 1;
+	border-radius: 20px;
+	width: 256px;
+	height: 30px;
+	font-family: Apercu-Light;
+	font-size: 18px;
+	color: #000000;
+}
+
+.btn-selected {
+    background-color: #999999;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    text-shadow: none;
+}
+
+.user_ctrl_buttons {
+	margin-top: 35px;
+	padding-bottom: 60px;
+}
+.user_ctrl_buttons ul{
+	list-style: none;
+	margin: 20px;
+}
+
+.user_ctrl_buttons li{
+	margin-top: 20px;
+}
+
+/* flash messages*/
 
 .alert-box.success {
 	background-color: #43ac6a;
@@ -42,7 +98,116 @@
 	background-color: #008cba;
 	border-color: #0078a0;
 	color: white;
-   	 width: 95%;
+   	 width: 100%;
 	 position: absolute;
   	z-index: 999;
 }
+
+/*---*/
+/* login section */
+
+.login_sec {
+    margin-top: 6%;
+    max-width: 710px;
+}
+
+.login_heading {
+    font-family: Apercu-Light;
+    font-size: 22px;
+    font-weight: normal;
+    padding: 10px;
+    margin: -1px;
+    background: black;
+    color: #ffffff;
+    height: 60px;
+}
+
+.login_label {
+    font-family: Apercu-Regular;
+    font-size: 20px;
+    font-weight: normal;
+}
+
+.login_input {
+    font-family: Apercu-Regular;
+    font-size: 15px;
+    border-radius: 0px;
+    height: 45px;
+    font-weight: normal;
+}
+
+.btn_login {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 0px;
+    border: black;
+    text-shadow: none;
+}
+
+.btn_login:hover {
+    background-color: #000000;
+    color: #FFFFFF;
+    border-radius: 0px;
+    border: black;
+    text-shadow: none;
+}
+
+.login_forget a {
+    font-family: Apercu-Regular;
+    font-size: 18px;
+    color: #000000;
+    margin-right: 20px;
+    font-weight: normal;
+}
+
+.login_forget a:hover {
+    text-decoration: none;
+}
+
+
+.login_reset_label {
+    font-family: Apercu-Regular;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 20px;
+    margin-top: -8px;
+}
+
+.reset_pas_desc {
+    font-family: Apercu-Light;
+    font-size: 15px;
+    margin-bottom: 39px;
+}
+
+.login_sec_box {
+    box-shadow: 0 0 10px 0 #000;
+}
+/************************* End login sections       *******************/
+.first_col {
+	background-color: #1A1A1A;
+	height:100vh;
+}
+.user_info {
+	float:right;
+}
+.yield_div{
+       padding-left: 340px;
+       padding-top: 71px;
+}
+
+.proj_title {
+       padding: 44px;
+       text-align: center;
+       color: #FFF;
+}
+
+table.records td
+{
+     padding-right:10px;
+}
+
+.li_g 
+{
+float:left;
+}
+

@@ -1,16 +1,44 @@
-= form_for @group do |f|
+= form_for @group do |group_f|
   - if @group.errors.any?
     #error_explanation
       %h2= "#{pluralize(@group.errors.count, "error")} prohibited this group from being saved:"
       %ul
         - @group.errors.full_messages.each do |msg|
           %li= msg
+  .field
+    = group_f.label :name
+    = group_f.text_field :name, :required => true
+  .field
+    = group_f.label :date
+    = group_f.datetime_select :date
+  .field
+    = group_f.label :topics
+    %img.hand_cursor{:onclick => " show_topic_list();", :src => "/assets/add.png", :title => "add topics"}
+    #group_topics_div
+      = group_f.fields_for :topics do |topic_f|
+        -if topic_f.object.id
+          #topic_item
+            .li_g
+              %li.topic_item=topic_f.object.name
+            .del_g
+              %img.hand_cursor{:src => "/assets/delete_icon.png", :onclick => "del_topic(this);"}
+  .field
+    = group_f.label :students
+    %img.hand_cursor{:onclick => " show_student_list();", :src => "/assets/add.png", :title => "add students"}
+    #group_students_div
+      = group_f.fields_for :group_students do |group_student_f|
+        = group_student_f.fields_for :student do |student_f|
+          -if student_f.object.id
+            #student_item
+              .li_g
+                %li.student_item=student_f.object.name
+              .del_g
+                %img.hand_cursor{:src => "/assets/delete_icon.png", :onclick => "del_student(this);"}
+              .mark_g
+                Mark as leader
+                %input{:id => "radio_#{student_f.object.id}", :class => "student_leader", :checked => is_group_leader(group_f.object.leader_id,student_f.object.id), :name => "leader_id", :type => "radio", :value => student_f.object.id, :onclick => "mark_as_leader(#{student_f.object.id});" }
+    .actions
+      = group_f.submit 'Save'
 
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :date
-    = f.datetime_select :date
-  .actions
-    = f.submit 'Save'
+
+   

@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
+  get '/get_topic_list', to: 'topics#get_topic_list'
   resources :topics
 
   resources :groups
-
+  
+  get '/get_student_list', to: 'students#get_student_list'
   resources :students
 
   devise_for :users

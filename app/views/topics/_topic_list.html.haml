@@ -1,0 +1,6 @@
+- @topics.each do |topic|
+  %input{:id => "radio_#{topic[:id]}", :name => "topic_check", :type => "checkbox", :value => "#{topic[:id]}_#{topic[:name]}"}/
+  = topic.name
+  %br/
+%button#add_to_group_btn{:onclick => "add_topic_to_group();", :style => "margin-top:10px;"} Add to group
+

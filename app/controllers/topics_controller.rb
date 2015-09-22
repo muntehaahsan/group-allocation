@@ -36,6 +36,12 @@ class TopicsController < ApplicationController
     respond_with(@topic)
   end
 
+  def get_topic_list 
+	# Get all topics which are not already taken by any other group
+	@topics = Topic.where(group_id: nil).all
+	render partial: '/topics/topic_list' , layout: false 
+  end
+
   private
     def set_topic
       @topic = Topic.find(params[:id])

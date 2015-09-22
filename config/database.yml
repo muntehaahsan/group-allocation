@@ -7,9 +7,9 @@
 default: &default
   adapter: postgresql
   username: postgres
-  password:
+  password: postgres
   host: localhost
-  port: 5433
+  port: 5432
 
 development:
   <<: *default

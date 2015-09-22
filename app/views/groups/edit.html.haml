@@ -1,7 +1,18 @@
 %h1 Editing group
 
-= render 'form'
+%table.records
+  %thead
+    %tr
+      %td 
+        = render 'form'
+      %td 
+        #student_list_div{:style => "display:none;"}
+        #topic_list_div{:style => "display:none;"}
 
 = link_to 'Show', @group
 \|
 = link_to 'Back', groups_path
+
+
+  
+
