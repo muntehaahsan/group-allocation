@@ -1,22 +1,30 @@
 class GroupsController < ApplicationController
   before_action :set_group, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
+  
   def index
     @groups = Group.all
-    respond_with(@groups)
+    respond_to do |format|
+    	format.html { @groups}
+    	format.json { render json: @groups }
+   end
   end
 
   def show
-    respond_with(@group)
+   respond_to do |format|
+    	format.html { @group}
+    	format.json { render json: @group}
+   end
   end
 
   def new
     @group = Group.new
     @group_students = @group.group_students.build
     @students = @group_students.build_student 
-    respond_with(@group)
+    respond_to do |format|
+    	format.html { @group}
+    	format.json { render json: @group}
+    end
   end
 
   def edit
@@ -25,7 +33,10 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     @group.save
-    respond_with(@group)
+    respond_to do |format|
+    	format.html { @group}
+    	format.json { render json: @group}
+   end
   end
 
   def update
@@ -70,12 +81,18 @@ puts group_params.inspect
 	  	 @group.update_attribute(:leader_id,nil) 
            end
            
-   respond_with(@group)
+   respond_to do |format|
+    	format.html { @group}
+    	format.json { render json: @group}
+   end
   end
 
   def destroy
     @group.destroy
-    respond_with(@group)
+    respond_to do |format|
+    	format.html { @group}
+    	format.json { render json: @group}
+   end
   end
   
   private

@@ -17,9 +17,11 @@
         %td= student.email
         %td= student.grade
         %td= link_to 'Show', student
-        %td= link_to 'Edit', edit_student_path(student)
-        %td= link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        -if can? :update, student
+          %td= link_to 'Edit', edit_student_path(student)
+        -if can? :destroy, student
+          %td= link_to 'Destroy', student, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Student', new_student_path
+-if can? :create, @students
+  = link_to 'New Student', new_student_path

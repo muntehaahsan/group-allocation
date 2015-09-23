@@ -6,6 +6,18 @@
 %p
   %b Date:
   = @group.date
+%p
+  - if  @group.leader
+    %b Leader:
+    = @group.leader.name
+%p
+  %b Students:
+  - @group.students.each do |student|
+    %li=student.name
+%p
+  %b Topics:
+  - @group.topics.each do |topic|
+    %li=topic.name
 
 = link_to 'Edit', edit_group_path(@group)
 \|

@@ -7,7 +7,8 @@ Rails.application.routes.draw do
   get '/get_student_list', to: 'students#get_student_list'
   resources :students
 
-  devise_for :users
+  #devise_for :users
+  devise_for(:users, :controllers => {  :registrations => "session/registrations"})
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

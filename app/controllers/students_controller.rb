@@ -1,20 +1,27 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
   def index
     @students = all_students
-    respond_with(@students)
+    respond_to do |format|
+    	format.html { @students}
+    	format.json { render json: @students}
+   end
   end
 
   def show
-    respond_with(@student)
+    respond_to do |format|
+    	format.html { @student}
+    	format.json { render json: @student}
+    end
   end
 
   def new
     @student = Student.new
-    respond_with(@student)
+    respond_to do |format|
+    	format.html { @student}
+    	format.json { render json: @student}
+    end
   end
 
   def edit
@@ -23,17 +30,26 @@ class StudentsController < ApplicationController
   def create
     @student = Student.new(student_params)
     @student.save
-    respond_with(@student)
+    respond_to do |format|
+    	format.html { @student}
+    	format.json { render json: @student}
+    end
   end
 
   def update
     @student.update(student_params)
-    respond_with(@student)
+    respond_to do |format|
+    	format.html { @student}
+    	format.json { render json: @student}
+    end
   end
 
   def destroy
     @student.destroy
-    respond_with(@student)
+    respond_to do |format|
+    	format.html { @student}
+    	format.json { render json: @student}
+    end
   end
 
   def get_student_list

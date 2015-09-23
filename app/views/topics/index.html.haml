@@ -15,9 +15,11 @@
         %td= topic.name
         %td= topic.subject
         %td= link_to 'Show', topic
-        %td= link_to 'Edit', edit_topic_path(topic)
-        %td= link_to 'Destroy', topic, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        -if can? :update, topic
+          %td= link_to 'Edit', edit_topic_path(topic)
+        -if can? :destroy, topic
+          %td= link_to 'Destroy', topic, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Topic', new_topic_path
+-if can? :create, @topics
+  = link_to 'New Topic', new_topic_path

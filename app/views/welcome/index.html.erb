@@ -1,5 +1,11 @@
 
 <h2>Welcome to Group Allocation System</h3>
 
-
+<% if current_user.role? == 'Admin' %>
+ You are logged in as Admin. You can manage everything everywhere!
+<% elsif current_user.role? == 'Leader' %>
+ You are logged in as Leader. You can manage your own groups only.
+<% else %>
+  You are logged in as Guest. You have read-only access.
+<% end %>
 

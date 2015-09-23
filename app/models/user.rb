@@ -14,4 +14,8 @@ class User < ActiveRecord::Base
         user.save
 	user
  end
+ 
+ def role? 
+	self.role.name
+  end
 end

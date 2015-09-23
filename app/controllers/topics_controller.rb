@@ -1,20 +1,27 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
-  respond_to :html
-
   def index
     @topics = Topic.all
-    respond_with(@topics)
+    respond_to do |format|
+    	format.html { @topics}
+    	format.json { render json: @topics}
+    end
   end
 
   def show
-    respond_with(@topic)
+    respond_to do |format|
+    	format.html { @topic}
+    	format.json { render json: @topic}
+    end
   end
 
   def new
     @topic = Topic.new
-    respond_with(@topic)
+    respond_to do |format|
+    	format.html { @topic}
+    	format.json { render json: @topic}
+    end
   end
 
   def edit
@@ -23,17 +30,26 @@ class TopicsController < ApplicationController
   def create
     @topic = Topic.new(topic_params)
     @topic.save
-    respond_with(@topic)
+    respond_to do |format|
+    	format.html { @topic}
+    	format.json { render json: @topic}
+    end
   end
 
   def update
     @topic.update(topic_params)
-    respond_with(@topic)
+    respond_to do |format|
+    	format.html { @topic}
+    	format.json { render json: @topic}
+    end
   end
 
   def destroy
     @topic.destroy
-    respond_with(@topic)
+    respond_to do |format|
+    	format.html { @topic}
+    	format.json { render json: @topic}
+    end
   end
 
   def get_topic_list 

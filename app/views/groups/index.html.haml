@@ -15,9 +15,11 @@
         %td= group.name
         %td= group.date
         %td= link_to 'Show', group
-        %td= link_to 'Edit', edit_group_path(group)
-        %td= link_to 'Destroy', group, :method => :delete, :data => { :confirm => 'Are you sure?' }
+        -if can? :update, group
+          %td= link_to 'Edit', edit_group_path(group)
+        -if can? :destroy, group
+          %td= link_to 'Destroy', group, :method => :delete, :data => { :confirm => 'Are you sure?' }
 
 %br
-
-= link_to 'New Group', new_group_path
+-if can? :create, @groups
+  = link_to 'New Group', new_group_path
