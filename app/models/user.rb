@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :role
+  before_save :ensure_authentication_token
 
- def self.add_student_as_leader(student)
+  def self.add_student_as_leader(student)
 	user = User.find_or_create_by( email: student.email)
 	user.name = student.name
         user.password = DEFAULT_PASSWORD
@@ -13,9 +14,24 @@ class User < ActiveRecord::Base
  	user.student_id = student.id
         user.save
 	user
- end
+  end
  
- def role? 
+  def role? 
 	self.role.name
+  end
+
+  def ensure_authentication_token
+    if authentication_token.blank?
+      self.authentication_token = generate_authentication_token
+    end
+  end
+
+  private
+  
+  def generate_authentication_token
+    loop do
+      token = Devise.friendly_token
+      break token unless User.where(authentication_token: token).first
+    end
   end
 end

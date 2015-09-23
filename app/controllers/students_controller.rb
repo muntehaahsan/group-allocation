@@ -1,5 +1,6 @@
 class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!
 
   def index
     @students = all_students
@@ -31,7 +32,7 @@ class StudentsController < ApplicationController
     @student = Student.new(student_params)
     @student.save
     respond_to do |format|
-    	format.html { @student}
+    	format.html {redirect_to @student}
     	format.json { render json: @student}
     end
   end
@@ -39,7 +40,7 @@ class StudentsController < ApplicationController
   def update
     @student.update(student_params)
     respond_to do |format|
-    	format.html { @student}
+    	format.html {redirect_to @student}
     	format.json { render json: @student}
     end
   end
@@ -47,7 +48,7 @@ class StudentsController < ApplicationController
   def destroy
     @student.destroy
     respond_to do |format|
-    	format.html { @student}
+    	format.html { redirect_to @student}
     	format.json { render json: @student}
     end
   end

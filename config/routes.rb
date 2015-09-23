@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :students
 
   #devise_for :users
-  devise_for(:users, :controllers => {  :registrations => "session/registrations"})
+  devise_for(:users, :controllers => {:sessions => "session/sessions",  :registrations => "session/registrations"})
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

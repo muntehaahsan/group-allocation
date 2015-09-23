@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
+  skip_before_action :authenticate_user!
 
   def index
     @topics = Topic.all
@@ -31,7 +32,7 @@ class TopicsController < ApplicationController
     @topic = Topic.new(topic_params)
     @topic.save
     respond_to do |format|
-    	format.html { @topic}
+    	format.html {redirect_to  @topic}
     	format.json { render json: @topic}
     end
   end
@@ -39,7 +40,7 @@ class TopicsController < ApplicationController
   def update
     @topic.update(topic_params)
     respond_to do |format|
-    	format.html { @topic}
+    	format.html {redirect_to @topic}
     	format.json { render json: @topic}
     end
   end
@@ -47,7 +48,7 @@ class TopicsController < ApplicationController
   def destroy
     @topic.destroy
     respond_to do |format|
-    	format.html { @topic}
+    	format.html {redirect_to @topic}
     	format.json { render json: @topic}
     end
   end
